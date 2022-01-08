@@ -24,8 +24,6 @@ int main(int argc, char *argv[])
 	
 	socklen_t clilen;
 
-	printf("Hello World!");
-
 	if (argc < 2)
 	{
 		fprintf(stderr, "Port Number not provided\n");
@@ -34,18 +32,18 @@ int main(int argc, char *argv[])
 	
 	/* CREATE AND BIND THE SERVER SOCKET */
 	
-	sockfd = socket(AF_INET6, SOCK_STREAM, 0); //Create a socket, assign it to sockfd
+	sockfd = socket(AF_INET, SOCK_STREAM, 0); //Create a socket, assign it to sockfd
 	
 	if (sockfd < 0)
 	{
-		error("Error opening socket.");
+		error("Error opening socket");
 	}
 	
 	memset((char *) &serv_addr, 0, sizeof(serv_addr));
 
 	portno = atoi(argv[1]);
 	
-	serv_addr.sin_family = AF_INET6;		//Address Family = IPv6
+	serv_addr.sin_family = AF_INET;		//Address Family = IPv6
 	serv_addr.sin_addr.s_addr = INADDR_ANY; 
 	serv_addr.sin_port = htons(portno); 	//htons: host to network short
 	
