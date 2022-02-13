@@ -1,1 +1,6 @@
 *.exe
+*.o
+*.xml
+Obj/**
+Test_Client
+Test_Server
